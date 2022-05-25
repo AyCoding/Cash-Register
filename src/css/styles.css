@@ -1,0 +1,73 @@
+/* Reset CSS */
+@import url("https://unpkg.com/reset-css@5.0.1/reset.css");
+/* Font Poppins*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+body {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  color: #333333;
+  background: #141414;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  font-weight: 500;
+}
+header .left, header .right {
+  display: flex;
+  align-items: center;
+}
+header .left a, header .right a {
+  padding: 15px 30px;
+  background: white;
+  text-decoration: none;
+}
+header .left a:hover, header .right a:hover {
+  color: red;
+  transition: 0.3s;
+}
+header .right .cash {
+  padding-right: 15px;
+}
+
+main {
+  height: auto;
+  margin: 70px auto;
+}
+
+table {
+  width: 80%;
+  text-align: center;
+  margin: auto;
+  background: #fff;
+}
+table th {
+  font-weight: bold;
+}
+table th, table tbody, table td {
+  border: 2px solid #141414;
+  padding: 15px 30px;
+}
+table input {
+  width: 100%;
+  color: #333;
+}
+
+#number {
+  border: transparent;
+  padding: 15px 0;
+  text-align: center;
+}
+
+/*# sourceMappingURL=styles.css.map */
