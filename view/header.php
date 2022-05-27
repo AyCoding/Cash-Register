@@ -1,14 +1,17 @@
 <header>
     <div class="left">
-        <div>
-            <a href="#">Produits</a>
-        </div>
-        <div>
-            <a href="#">Acompte</a>
-        </div>
-        <div>
-            <a href="#">Profil</a>
-        </div>
+        <a href="#">
+            <span>Produits</span>
+        </a>
+
+        <a href="#">
+            <span>Acompte</span>
+        </a>
+
+        <a href="#">
+            <span>Profil</span>
+        </a>
+
     </div>
     <div class="right">
         <a href="#">

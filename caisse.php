@@ -7,14 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="assets/NotoFirefighterMediumSkinTone.svg">
     <link rel="stylesheet" href="src/css/styles.css">
-    <title>Accueil | Caserne Nouzonville</title>
+    <title>Caserne de Nouzonville</title>
 </head>
 <body>
 
-<div class="hero">
-    <h1>Veuillez vous connecter pour accéder à la caisse enregistreuse</h1>
-    <a href="caisse.php">Se connecter</a>
-</div>
+<?php
+include "view/header.php";
+include "view/main.php";
+include "view/footer.php";
+?>
 
 </body>
 </html>

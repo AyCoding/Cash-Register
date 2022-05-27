@@ -1,5 +1,39 @@
 @import "scss/base";
 
+/* Non connecter */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+  font-size: 20px;
+  margin-top: 150px;
+  letter-spacing: 1.2px;
+
+  h1 {
+    font-weight: bold;
+  }
+
+  a {
+    margin-top: 70px;
+    padding: 15px;
+    transition: .2s;
+    background: white;
+    color: #333333;
+    border: 2px solid transparent;
+    border-radius: 4px;
+  }
+
+  a:hover {
+    border-radius: 4px;
+    transition: .2s;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    background: transparent;
+  }
+}
+
 /* HEADER */
 header {
   display: flex;
@@ -8,6 +42,7 @@ header {
   width: 100%;
   height: auto;
   font-weight: 500;
+  background: #ffffff;
 
   .left, .right {
     display: flex;
@@ -26,7 +61,6 @@ header {
   }
 
   .right {
-
     .cash {
       padding-right: 15px;
     }
