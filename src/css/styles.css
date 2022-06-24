@@ -7,7 +7,6 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
   color: #333333;
-  background: #141414;
 }
 
 a {
@@ -15,13 +14,13 @@ a {
   text-decoration: none;
 }
 
-/* Non connecter */
+/* index.php */
 .hero {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #FFF;
+  color: #333;
   font-size: 20px;
   margin-top: 150px;
   letter-spacing: 1.2px;
@@ -35,14 +34,14 @@ a {
   transition: 0.2s;
   background: white;
   color: #333333;
-  border: 2px solid transparent;
+  border: 2px solid #333;
   border-radius: 4px;
 }
 .hero a:hover {
   border-radius: 4px;
   transition: 0.2s;
-  color: #ffffff;
-  border: 2px solid #ffffff;
+  color: orange;
+  border: 2px solid orange;
   background: transparent;
 }
 

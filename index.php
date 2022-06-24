@@ -12,8 +12,8 @@
 <body>
 
 <div class="hero">
-    <h1>Veuillez vous connecter pour accéder à la caisse enregistreuse</h1>
-    <a href="caisse.php">Se connecter</a>
+    <h1>Caisse enregistreuse - Caserne des pompiers de Nouzonville</h1>
+    <a href="caisse.php">Accedez à la caisse</a>
 </div>
 
 </body>

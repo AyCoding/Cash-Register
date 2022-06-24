@@ -33,7 +33,7 @@ $data = $result->fetchAll();
             <th>Produits</th>
             <th>Quantité</th>
             <th>Prix</th>
-            <th>Validateur</th>
+            <!--<th>Validateur</th>-->
         </tr>
         </thead>
         <tbody>
@@ -44,29 +44,29 @@ $data = $result->fetchAll();
             <tr>
                 <td><?= $value['name']; ?></td>
                 <td><?= $value['stocks']; ?></td>
-                <td>1,50€</td>
+                <td><?= $value['price'], '€'; ?></td>
                 <td>
+                    <!--<form action="">-->
+                        <div style="display: flex; border: 0; justify-content: space-around; align-items: center; border-bottom: 2px solid #141414;">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 aria-hidden="true" role="img" class="iconify iconify--mdi" width="32" height="32"
+                                 preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                      d="M17 13H7v-2h10m2-8H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"></path>
+                            </svg>
 
-                    <div style="display: flex; border: 0; justify-content: space-around; align-items: center; border-bottom: 2px solid #141414;">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                             aria-hidden="true" role="img" class="iconify iconify--mdi" width="32" height="32"
-                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                            <path fill="currentColor"
-                                  d="M17 13H7v-2h10m2-8H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"></path>
-                        </svg>
+                            <!-- Nombre incrémenter -->
+                            <p>5</p>
 
-                        <!-- Nombre incrémenter -->
-                        <p>5</p>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                             aria-hidden="true" role="img" class="iconify iconify--mdi" width="32" height="32"
-                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                            <path fill="currentColor"
-                                  d="M17 13h-4v4h-2v-4H7v-2h4V7h2v4h4m2-8H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"></path>
-                        </svg>
-                    </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 aria-hidden="true" role="img" class="iconify iconify--mdi" width="32" height="32"
+                                 preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                      d="M17 13h-4v4h-2v-4H7v-2h4V7h2v4h4m2-8H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"></path>
+                            </svg>
+                        </div>
                 </td>
-                </form>
+                <!--</form>-->
             </tr>
         <?php endforeach ?>
 
