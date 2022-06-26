@@ -54,6 +54,7 @@ header {
   height: auto;
   font-weight: 500;
   background: #ffffff;
+  box-shadow: 0 1px 0 rgba(152, 151, 217, 0.5);
 }
 header .left, header .right {
   display: flex;
@@ -89,6 +90,9 @@ table th {
 table th, table tbody, table td {
   border: 2px solid #141414;
   padding: 15px 30px;
+}
+table td {
+  padding: 30px 50px;
 }
 table input {
   width: 100%;

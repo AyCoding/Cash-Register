@@ -1,7 +1,7 @@
 <?php
-
+require_once 'bdd.php';
 // Connexion BDD
-$db = new PDO('mysql:host=localhost;dbname=caisse;charset=UTF8;', 'root', '');
+$db = new PDO('mysql:host='. DB_HOST .';dbname='. DB_DBNAME . ';charset=UTF8;', DB_USER, DB_PASS);
 
 // Récupéreration tous les éléments
 $sql = "SELECT * FROM `acompte`;";
@@ -10,10 +10,14 @@ $result->execute();
 
 $data = $result->fetchAll();
 
+/*echo '<pre>';
+print_r($data);
+echo '</pre>';
+echo $data[1][1];*/
 ?>
 <header>
     <div class="left">
-        <a href="#">
+        <a href="caisse.php">
             <span>Produits</span>
         </a>
 
@@ -22,7 +26,7 @@ $data = $result->fetchAll();
         </a>
 
         <a href="#">
-            <span>Profil</span>
+            <span>Admin</span>
         </a>
 
     </div>
@@ -34,7 +38,7 @@ $data = $result->fetchAll();
                 <!--130,00€-->
             </span>
             <span class="user">
-                <?= $value['first_name'] ?>
+                <?= substr($value['first_name'], 0, 1), '.'; ?>
                 <?= $value['last_name'] ?>
                 <!--J. Doe-->
             </span>
