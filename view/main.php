@@ -33,7 +33,6 @@ $data = $result->fetchAll();
             <th>Produits</th>
             <th>Quantité</th>
             <th>Prix</th>
-            <!--<th>Validateur</th>-->
         </tr>
         </thead>
         <tbody>
@@ -44,7 +43,7 @@ $data = $result->fetchAll();
             <tr class="tr">
                 <td><?= $value['name']; ?></td>
                 <td><?= $value['stocks']; ?></td>
-                <td><?= $value['price'], '€'; ?></td>
+                <td class="price"><?= $value['price']; ?></td>
                 <td style="position: relative;" class="td-count">
                     <div style="display: flex; border: 0; justify-content: space-around; align-items: center; user-select: none">
                         <svg style="position: absolute; left: 5%; cursor: pointer" xmlns="http://www.w3.org/2000/svg"
@@ -69,6 +68,10 @@ $data = $result->fetchAll();
                 </td>
             </tr>
         <?php endforeach ?>
+        <tr>
+            <td style="font-weight: 900" colspan="2">Total</td>
+            <td colspan="2" id="total">0</td>
+        </tr>
 
         <!-- END Génération auto -->
         </tbody>

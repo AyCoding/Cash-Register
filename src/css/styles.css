@@ -7,6 +7,7 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
   color: #333333;
+  fill: #333333;
 }
 
 a {
@@ -67,6 +68,7 @@ header .left a, header .right a {
 }
 header .left a:hover, header .right a:hover {
   color: red;
+  fill: red;
   transition: 0.3s;
 }
 header .right .cash {
