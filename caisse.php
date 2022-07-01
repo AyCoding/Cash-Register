@@ -11,11 +11,32 @@
 </head>
 <body>
 
-<?php
-include "view/header.php";
-include "view/main.php";
-include "view/footer.php";
-?>
+<?php include "view/header.php"; ?>
+
+<main>
+    <table>
+        <thead>
+        <tr>
+            <th>Produits</th>
+            <th>Quantité</th>
+            <th>Prix</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <?php include "controller/traitementCaisse.php" ?>
+        <tr>
+            <td style="font-weight: 900" colspan="2">Total</td>
+            <td colspan="2" id="total">0</td>
+        </tr>
+
+        </tbody>
+    </table>
+</main>
+
+
+<?php include "view/footer.php"; ?>
+
 
 <script src="src/js/main.js"></script>
 </body>
