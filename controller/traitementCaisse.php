@@ -1,7 +1,6 @@
 <?php
-include_once 'bdd.php';
 // Connexion BDD
-$db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_DBNAME . ';charset=UTF8;', DB_USER, DB_PASS);
+include_once 'php/database.php';
 
 // Récupéreration tous les éléments
 $sql = "SELECT * FROM `produits`;";

@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="fr">
 <head>
@@ -10,9 +9,9 @@
     <title>Profil</title>
 </head>
 <body>
-<?php
-include "view/header.php";
-include "view/footer.php";
-?>
+
+<?php include "view/header.php"; ?>
+<?php include "view/footer.php"; ?>
+
 </body>
 </html>
