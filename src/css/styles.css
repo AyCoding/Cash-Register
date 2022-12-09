@@ -81,31 +81,4 @@ main {
   margin: 70px auto;
 }
 
-table {
-  width: 80%;
-  text-align: center;
-  margin: auto;
-  background: #fff;
-}
-table th {
-  font-weight: bold;
-}
-table th, table tbody, table td {
-  border: 2px solid #141414;
-  padding: 15px 30px;
-}
-table td {
-  padding: 30px 50px;
-}
-table input {
-  width: 100%;
-  color: #333;
-}
-
-#number {
-  border: transparent;
-  padding: 15px 0;
-  text-align: center;
-}
-
 /*# sourceMappingURL=styles.css.map */

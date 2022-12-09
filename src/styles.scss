@@ -75,34 +75,3 @@ main {
   height: auto;
   margin: 70px auto;
 }
-
-table {
-  width: 80%;
-  text-align: center;
-  margin: auto;
-  background: #fff;
-
-  th {
-    font-weight: bold;
-  }
-
-  th, tbody, td {
-    border: 2px solid #141414;
-    padding: 15px 30px;
-  }
-
-  td {
-    padding: 30px 50px;
-  }
-
-  input {
-    width: 100%;
-    color: #333;
-  }
-}
-
-#number {
-  border: transparent;
-  padding: 15px 0;
-  text-align: center;
-}

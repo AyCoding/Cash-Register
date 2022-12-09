@@ -1,3 +1,5 @@
+<?php include "view/header.php"; ?>
+<?php include "controller/traitementCaisse.php"; ?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -10,34 +12,48 @@
     <title>Caserne de Nouzonville</title>
 </head>
 <body>
-
-<?php include "view/header.php"; ?>
-
 <main>
     <table>
         <thead>
         <tr>
-            <th>Produits</th>
-            <th>Quantité</th>
-            <th>Prix</th>
+            <td>Moins</td>
+            <td>Produits</td>
+            <td>Prix</td>
+            <td>Plus</td>
         </tr>
         </thead>
         <tbody>
 
-        <?php include "controller/traitementCaisse.php" ?>
-        <tr>
-            <td style="font-weight: 900" colspan="2">Total</td>
-            <td colspan="2" id="total">0</td>
-        </tr>
-
+        <?php
+        foreach ($data as $key => $value) {
+            echo '<tr>';
+            echo '<td>-</td>';
+            echo '<td>' . $value['produits'] . '</td>';
+            echo '<td>' . $value['price'] . '</td>';
+            echo '<td>+</td>';
+            echo '</tr>';
+        }
+        ?>
         </tbody>
     </table>
+
+    <?php include "view/footer.php"; ?>
 </main>
 
-
-<?php include "view/footer.php"; ?>
-
-
-<script src="src/js/main.js"></script>
+<!--<script src="src/js/main.js"></script>-->
 </body>
 </html>
+<style>
+    table {
+        width: 90%;
+        margin: auto;
+    }
+    td {
+        padding: 30px 15px;
+        background: deepskyblue;
+        text-align: center;
+    }
+    main {
+        margin-top: 5%;
+    }
+</style>
