@@ -9,6 +9,7 @@ $result->execute();
 
 $data = $result->fetchAll();
 ?>
+<link rel="stylesheet" href="src/css/styles.css">
 <header>
     <div class="left">
         <a href="/caisse.php">
@@ -19,7 +20,7 @@ $data = $result->fetchAll();
             <span>Acompte</span>
         </a>
 
-        <a href="#">
+        <a href="admin.php">
             <span>Admin</span>
         </a>
 

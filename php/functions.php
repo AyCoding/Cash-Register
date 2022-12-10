@@ -13,4 +13,17 @@ function CreateUser($pseudo, $pass, $role)
         ':role' => $role,
         ':acompte' => 0
     ]);
+    header('location: /#');
+}
+
+function modifAcompte($acompte, $id)
+{
+    global $db;
+    global $id;
+    $sql = "UPDATE `users` SET `acompte`= :acompte WHERE `id`= :id";
+    $result = $db->prepare($sql);
+    $result->execute([
+        ':acompte' => $acompte,
+        ':id' => $id
+    ]);
 }
