@@ -1,19 +1,20 @@
 <?php
 // Création d'utilisateur
-function CreateUser($pseudo, $pass, $role)
+function CreateUser($nom, $prenom, $pass, $role)
 {
     global $db;
     // Insertion dans la table 'users'
-    $sql = "INSERT INTO `users`(pseudo, password,role, acompte) VALUES (:pseudo,:password,:role,:acompte)";
+    $sql = "INSERT INTO `users`(nom, prénom, password,role, acompte) VALUES (:nom,:prenom,:password,:role,:acompte)";
 
     $result = $db->prepare($sql);
     $result->execute([
-        ':pseudo' => $pseudo,
+        ':nom' => $nom,
+        ':prenom' => $prenom,
         ':password' => hash('sha256', $pass),
         ':role' => $role,
         ':acompte' => 0
     ]);
-    header('location: /#');
+    header('location: admin.php');
 }
 
 function modifAcompte($acompte, $id)
@@ -26,4 +27,13 @@ function modifAcompte($acompte, $id)
         ':acompte' => $acompte,
         ':id' => $id
     ]);
+}
+
+function modifOn($modif)
+{
+    if ($modif == True) {
+        echo "Modifaction en cours";
+        return True;
+    }
+    return False;
 }

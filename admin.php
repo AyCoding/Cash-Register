@@ -1,6 +1,11 @@
 <?php
 include "php/database.php";
 include "view/header.php";
+include_once "php/functions.php";
+if (ModifOn(isset($_GET['modif']))) {
+    echo "La modfication est présenteeeeeeee";
+}
+
 $sql = 'SELECT * FROM `users`';
 
 $result = $db->prepare($sql);
@@ -34,7 +39,8 @@ $data = $result->fetchAll();
         echo '<td>' . $value['nom'] . '</td>';
         echo '<td>' . $value['prénom'] . '</td>';
         echo '<td>' . $value['acompte'] . '€</td>';
-//        echo "<td><a href='modif.php?id={$value['id']}&nom={$value['nom']}&prénom={$value['prénom']}&=acompte{$value['acompte']}'>Modifier</a></td>";
+        echo "<td><a href='?modif=True?id={$value['id']}&nom={$value['nom']}&prénom={$value['prénom']}&=acompte{$value['acompte']}'>Modifier</a></td>";
+        echo "<td><a href='?id={$value['id']}'>Supprimer</a></td>";
         echo '</tr>';
     }
     ?>
