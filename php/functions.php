@@ -20,7 +20,7 @@ function CreateUser($nom, $prenom, $pass, $role)
 function modifAcompte($acompte, $id)
 {
     global $db;
-    global $id;
+//    global $id;
     $sql = "UPDATE `users` SET `acompte`= :acompte WHERE `id`= :id";
     $result = $db->prepare($sql);
     $result->execute([
@@ -32,8 +32,17 @@ function modifAcompte($acompte, $id)
 function modifOn($modif)
 {
     if ($modif == True) {
-        echo "Modifaction en cours";
         return True;
     }
     return False;
+}
+
+function delById($id)
+{
+    global $db;
+    $sql = "DELETE FROM `users` WHERE `users`.`id` = :id";
+    $result = $db->prepare($sql);
+    $result->execute([
+        ':id' => $id,
+    ]);
 }
