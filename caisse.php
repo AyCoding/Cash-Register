@@ -16,22 +16,28 @@
     <table>
         <thead>
         <tr>
-            <td>Moins</td>
             <td>Produits</td>
+            <td>Quantité</td>
             <td>Prix</td>
-            <td>Plus</td>
         </tr>
         </thead>
         <tbody>
 
         <?php
         foreach ($data as $key => $value) {
+
+            echo '<tr>';
+            echo '<td>' . $value['produits'] . '</td>';
+            echo '<td>' . $value['quantité'] . '</td>';
+            echo '<td>' . $value['price'] . '</td>';
+            echo '</tr>';
+
             echo '<tr>';
             echo '<td>-</td>';
-            echo '<td>' . $value['produits'] . '</td>';
-            echo '<td>' . $value['price'] . '</td>';
+            echo '<td>0</td>';
             echo '<td>+</td>';
-            echo '</tr>';
+            echo '</td>';
+
         }
         ?>
         </tbody>
@@ -48,12 +54,29 @@
         width: 90%;
         margin: auto;
     }
+
     td {
         padding: 30px 15px;
         background: deepskyblue;
         text-align: center;
     }
+
     main {
         margin-top: 5%;
+    }
+
+    thead {
+        font-weight: bold;
+    }
+
+    table,
+    td {
+        border: 1px solid #333;
+    }
+
+    thead,
+    tfoot {
+        background-color: #333;
+        color: #fff;
     }
 </style>
