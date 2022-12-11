@@ -17,15 +17,15 @@ if (isset($_POST['submit'])) {
     <input type="password" name="password" placeholder="Password">
     <input type="text" name="role" placeholder="Rôle">
     <input type="submit" name="submit" value="Envoyer">
-    <a href="?">Annuler</a>
+    <a href="admin.php" class="cancel">Annuler</a>
 </form>
 <style>
-    h1, form {
-        margin: 30px;
-    }
-
     form {
         display: flex;
+        max-width: 90%;
+        width: 500px;
+        margin: 5% auto;
+        flex-direction: column;
         gap: 10px;
     }
 
@@ -41,5 +41,14 @@ if (isset($_POST['submit'])) {
     form input:hover, a:hover {
         background: #555;
         transition: .3s;
+    }
+
+    input {
+        font-size: 16px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .cancel {
+        text-align: center;
     }
 </style>

@@ -59,13 +59,14 @@ if (isset($_GET['add_account']) == 'True') {
 // Modification d'acompte
 if (isset($_GET['id']) && isset($_GET['modif']) == True) {
     echo '<form action="" method="POST">';
-    echo "<input type='text' name='acompte' placeholder='acompte' value='{$_GET['acompte']}'>";
+    echo "<input type='text' name='acompte' placeholder='acompte'>";
     echo '<input type="submit" name="submit" value="Envoyer">';
+    echo '<a href="admin.php" class="cancel">Annuler</a>';
     echo "</form>";
     $id = $_GET['id'];
 
     if (isset($_POST['submit'])) {
-        $acompte = $_POST['acompte'];
+        $acompte = $_GET['acompte'] + $_POST['acompte'];
         modifAcompte($acompte, $id);
         header('location: admin.php');
     }
@@ -105,6 +106,12 @@ if (isset($_GET['id']) && isset($_GET['modif']) == True) {
         text-align: center;
     }
 
+    td a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .btn__add-account {
         background: #333;
         color: #FFF;
@@ -134,5 +141,47 @@ if (isset($_GET['id']) && isset($_GET['modif']) == True) {
     a:hover {
         background: #555;
         transition: .3s;
+    }
+
+    form {
+        display: flex;
+        max-width: 90%;
+        width: 500px;
+        margin: 5% auto;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Create.php & ModifAcompte */
+    form {
+        display: flex;
+        max-width: 90%;
+        width: 500px;
+        margin: 5% auto;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    form input, select, a {
+        padding: 10px 30px;
+        border: none;
+        cursor: pointer;
+        background: #333;
+        color: #FFF;
+        border-radius: 4px;
+    }
+
+    form input:hover, a:hover {
+        background: #555;
+        transition: .3s;
+    }
+
+    input {
+        font-size: 16px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .cancel {
+        text-align: center;
     }
 </style>
