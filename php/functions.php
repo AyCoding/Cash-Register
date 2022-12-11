@@ -17,10 +17,10 @@ function CreateUser($nom, $prenom, $pass, $role)
     header('location: admin.php');
 }
 
+// Modification des acomptes
 function modifAcompte($acompte, $id)
 {
     global $db;
-//    global $id;
     $sql = "UPDATE `users` SET `acompte`= :acompte WHERE `id`= :id";
     $result = $db->prepare($sql);
     $result->execute([
@@ -29,6 +29,7 @@ function modifAcompte($acompte, $id)
     ]);
 }
 
+// Modififaction On
 function modifOn($modif)
 {
     if ($modif == True) {
@@ -37,6 +38,7 @@ function modifOn($modif)
     return False;
 }
 
+// Suppression de compte
 function delById($id)
 {
     global $db;

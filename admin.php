@@ -3,6 +3,7 @@ include_once "php/database.php";
 include_once "view/header.php";
 include_once "php/functions.php";
 
+// Suppression un compte
 if (isset($_GET['id']) && isset($_GET['del']) == 'True') {
     delById($_GET['id']);
 }
@@ -50,12 +51,13 @@ $data = $result->fetchAll();
 </table>
 <a href="?add_account=True" class="btn__add-account">Ajouter un compte</a>
 <?php
+// Ajout d'un compte
 if (isset($_GET['add_account']) == 'True') {
     include "create.php";
 }
 
-
-if (isset($_GET['id'])&& isset($_GET['modif']) == True) {
+// Modification d'acompte
+if (isset($_GET['id']) && isset($_GET['modif']) == True) {
     echo '<form action="" method="POST">';
     echo "<input type='text' name='acompte' placeholder='acompte' value='{$_GET['acompte']}'>";
     echo '<input type="submit" name="submit" value="Envoyer">';
