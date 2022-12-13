@@ -43,6 +43,25 @@
         </tbody>
     </table>
 
+    <?php
+    $sql = 'SELECT * FROM `users`';
+
+    $result = $db->prepare($sql);
+    $result->execute();
+
+    $data = $result->fetchAll();
+
+    ?>
+    <form action="">
+        <SELECT name="role" size="1">
+            <OPTION selected>None
+                <?php foreach ($data as $key => $value) {
+                    echo '<OPTION>' . $value['nom'] . ' ' . $value['prénom'];
+                }
+                ?>
+        </SELECT>
+    </form>
+
     <?php include "view/footer.php"; ?>
 </main>
 
@@ -57,7 +76,7 @@
 
     td {
         padding: 30px 15px;
-        background: deepskyblue;
+        /*background: deepskyblue;*/
         text-align: center;
     }
 
