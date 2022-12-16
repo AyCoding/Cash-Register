@@ -68,8 +68,8 @@ header .left a, header .right a {
   text-decoration: none;
 }
 header .left a:hover, header .right a:hover {
-  color: red;
-  fill: red;
+  color: #555555;
+  fill: #555555;
   transition: 0.3s;
 }
 header .right .cash {

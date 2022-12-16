@@ -134,7 +134,7 @@ if (isset($_GET['id']) && isset($_GET['modif']) == True) {
         border: none;
         cursor: pointer;
         background: #333;
-        color: #FFF;
+        /*color: #FFF;*/
         border-radius: 4px;
     }
 
@@ -162,7 +162,7 @@ if (isset($_GET['id']) && isset($_GET['modif']) == True) {
         gap: 10px;
     }
 
-    form input, select, a {
+    form input, select, td > a {
         padding: 10px 30px;
         border: none;
         cursor: pointer;
