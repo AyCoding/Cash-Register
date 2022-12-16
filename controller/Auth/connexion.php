@@ -32,6 +32,8 @@ if (isset($_POST['submit'])) {
             // SESSION SET
             $_SESSION['id'] = $data['id'];
             $_SESSION['CONNECTED'] = true;
+            $_SESSION['pseudo'] = $data['pseudo'];
+            $_SESSION['type_account'] = $data['type_account'];
             header('location: ./');
             exit();
 

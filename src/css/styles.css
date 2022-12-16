@@ -67,6 +67,9 @@ header .left a, header .right a {
   background: white;
   text-decoration: none;
 }
+header .left a svg, header .right a svg {
+  fill: #333333;
+}
 header .left a:hover, header .right a:hover {
   color: #555555;
   fill: #555555;
@@ -74,11 +77,6 @@ header .left a:hover, header .right a:hover {
 }
 header .right .cash {
   padding-right: 15px;
-}
-
-main {
-  height: auto;
-  margin: 70px auto;
 }
 
 /*# sourceMappingURL=styles.css.map */

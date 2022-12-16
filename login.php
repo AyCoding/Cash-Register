@@ -18,7 +18,7 @@ include "controller/Auth/connexion.php";
         <div class="login">
             <h1>Connexion</h1>
             <form action="" method="POST">
-                <input type="text" name="pseudo" placeholder="Pseudo">
+                <input type="text" name="pseudo" placeholder="Pseudo" required>
                 <input type="password" name="password" placeholder="Mot de passe">
                 <input type="submit" id="submit" name="submit" value="Se connecter">
                 <?php
@@ -33,9 +33,14 @@ include "controller/Auth/connexion.php";
 </body>
 </html>
 <style>
+    html {
+        height: 100%;
+        width: 100%;
+    }
+
     .container {
         margin: 100px auto;
-        width: auto;
+        max-width: 500px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -66,11 +71,10 @@ include "controller/Auth/connexion.php";
         margin: auto auto 20px;
         text-align: center;
         font-size: 16px;
-        border: none;
-        background: #F2F2F2;
         outline: none;
         width: 100%;
         padding: 10px 0;
+        border: 1px solid #333;
     }
 
     input::placeholder {

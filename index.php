@@ -2,6 +2,7 @@
 include "controller/Auth/auth.php";
 Connecte();
 Forcer_connexion();
+
 ?>
 <!doctype html>
 <html lang="fr">
@@ -16,11 +17,20 @@ Forcer_connexion();
 </head>
 <body>
 <main>
-    <a href="controller/Auth/logout.php">Déconnexion</a>
+    <?php
+    switch ($_SESSION['type_account']) {
+        case 'Admin':
+            include "admin.php";
+            break;
+        case 'Base':
+            include "caisse.php";
+            break;
+    }
+    ?>
 </main>
 </body>
 </html>
-<style>
+<!--<style>
 
 
     a {
@@ -39,4 +49,4 @@ Forcer_connexion();
         background: #555;
         transition: .3s;
     }
-</style>
+</style>-->

@@ -55,6 +55,9 @@ header {
       padding: 15px 30px;
       background: white;
       text-decoration: none;
+      svg {
+        fill: #333333;
+      }
 
       &:hover {
         color: #555555;
@@ -69,10 +72,4 @@ header {
       padding-right: 15px;
     }
   }
-}
-
-main {
-  //width: 80%;
-  height: auto;
-  margin: 70px auto;
 }
