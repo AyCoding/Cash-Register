@@ -10,7 +10,7 @@ function Connecte(): bool
 function Forcer_connexion(): void
 {
     if (!Connecte()) {
-        header('location: /login.php');
+        header('location: ./login.php');
         exit();
     }
 }

@@ -1,3 +1,8 @@
+<?php
+include "controller/Auth/auth.php";
+Connecte();
+Forcer_connexion();
+?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -10,11 +15,28 @@
     <title>Accueil | Caserne Nouzonville</title>
 </head>
 <body>
-
-<div class="hero">
-    <h1>Caisse enregistreuse - Caserne des pompiers de Nouzonville</h1>
-    <a href="caisse.php">Accedez à la caisse</a>
-</div>
-
+<main>
+    <a href="controller/Auth/logout.php">Déconnexion</a>
+</main>
 </body>
 </html>
+<style>
+
+
+    a {
+        padding: 10px 30px;
+        border: none;
+        cursor: pointer;
+        background: #333;
+        color: #FFF;
+        border-radius: 4px;
+        font-size: 16px;
+        font-weight: 600;
+        margin-left: 2%;
+    }
+
+    a:hover {
+        background: #555;
+        transition: .3s;
+    }
+</style>

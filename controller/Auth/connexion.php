@@ -1,4 +1,7 @@
 <?php
+// Paramètre de connexion
+include "php/database.php";
+
 session_start();
 
 // Si l'envoie des pas vide.
@@ -9,31 +12,31 @@ if (isset($_POST['submit'])) {
     $password = $_POST['password'];
 
     // On récupère dans la table "user" tous les utilisateurs
-    $sql = "SELECT * FROM `users` WHERE pseudo = :pseudo";
+    $sql = "SELECT * FROM `users` WHERE pseudo = :pseudo AND password = :password";
 
     // On prépare la lecture de BDD
     $result = $db->prepare($sql);
     $result->execute([
         ':pseudo' => $username,
+        ':password' => hash('sha256', $password)
     ]);
 
 
     if ($result->rowCount() > 0) {
         // Récuperer toutes la table "users"
-        $data = $result->fetchAll();
+        $data = $result->fetch();
 
         // Vérification du mot de passe hashé avec celui qui a été saisie
-        if (hash('sha256', $password) == $data[0]['password']) {
+        if (hash('sha256', $password) == $data['password']) {
 
             // SESSION SET
-//            $_SESSION['LOGGED_USER'] = $data[0]['pseudo'];
-//            $_SESSION['LOGGED_ROLE'] = $data[0]['role'];
+            $_SESSION['id'] = $data['id'];
             $_SESSION['CONNECTED'] = true;
-            header('location: /');
+            header('location: ./');
             exit();
 
-        } else {
-            $error = "Nom d'utilisateur ou mot de passe incorrects !";
         }
+    } else {
+        $error = "Nom d'utilisateur ou mot de passe incorrects !";
     }
 }
