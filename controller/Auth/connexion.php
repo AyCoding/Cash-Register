@@ -23,11 +23,11 @@ if (isset($_POST['submit'])) {
 
 
     if ($result->rowCount() > 0) {
-        // Récuperer toutes la table "users"
+        // Récupérer la ligne de la table
         $data = $result->fetch();
 
-        // Vérification du mot de passe hashé avec celui qui a été saisie
-        if (hash('sha256', $password) == $data['password']) {
+        // Vérification du mot de passe hash avec celui qui a été saisie
+        if (hash('sha256', $password) === $data['password']) {
 
             // SESSION SET
             $_SESSION['id'] = $data['id'];

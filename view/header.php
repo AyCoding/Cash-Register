@@ -2,7 +2,7 @@
 // Connexion BDD
 require_once 'php/database.php';
 
-// Récupéreration tous les éléments
+// Récupération tous les éléments
 $sql = "SELECT * FROM `users`;";
 $result = $db->prepare($sql);
 $result->execute();
@@ -13,17 +13,25 @@ $data = $result->fetchAll();
 <header>
     <div class="left">
         <a href="./controller/Auth/logout.php">Déconnexion</a>
-        <a href="./caisse.php">
+        <a href="./?page=produit">
             <span>Produits</span>
         </a>
 
-        <a href="#">
+        <a href="./?page=acompte">
             <span>Acompte</span>
         </a>
 
-        <a href="./admin.php">
-            <span>Admin</span>
+        <a href="./?page=profil">
+            <span>Profil</span>
         </a>
+
+        <?php
+        if ($_SESSION['type_account'] == 'Admin') {
+            echo '<a href="./?page=admin">
+                <span>Admin</span>
+            </a>';
+        }
+        ?>
 
     </div>
     <div class="right" style="flex-flow: column; align-items: flex-start">

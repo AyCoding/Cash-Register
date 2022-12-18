@@ -13,40 +13,29 @@ Forcer_connexion();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="assets/NotoFirefighterMediumSkinTone.svg">
     <link rel="stylesheet" href="src/css/styles.css">
-    <title>Accueil | Caserne Nouzonville</title>
+    <title>Caserne Nouzonville</title>
 </head>
 <body>
+<?php include_once "view/header.php"; ?>
 <main>
     <?php
-    switch ($_SESSION['type_account']) {
-        case 'Admin':
-            include "admin.php";
-            break;
-        case 'Base':
-            include "caisse.php";
-            break;
+    if (isset($_GET['page'])) {
+        switch ($_GET['page']) {
+            case 'admin':
+                include "admin.php";
+                break;
+            case 'profil':
+                include "profil.php";
+                break;
+            case 'acompte':
+                include "acompte.php";
+                break;
+            default:
+                include "caisse.php";
+                break;
+        }
     }
     ?>
 </main>
 </body>
 </html>
-<!--<style>
-
-
-    a {
-        padding: 10px 30px;
-        border: none;
-        cursor: pointer;
-        background: #333;
-        color: #FFF;
-        border-radius: 4px;
-        font-size: 16px;
-        font-weight: 600;
-        margin-left: 2%;
-    }
-
-    a:hover {
-        background: #555;
-        transition: .3s;
-    }
-</style>-->

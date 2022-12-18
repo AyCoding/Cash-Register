@@ -14,6 +14,11 @@ $result = $db->prepare($sql);
 $result->execute();
 
 $data = $result->fetchAll();
+
+// Bloquer l'accès à la page admin si l'utilisateur n'est pas admin
+if ($_SESSION['type_account'] != 'Admin') {
+    header('location: ./');
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -41,15 +46,15 @@ $data = $result->fetchAll();
         echo '<td>' . $value['nom'] . '</td>';
         echo '<td>' . $value['prénom'] . '</td>';
         echo '<td>' . $value['acompte'] . '€</td>';
-        echo "<td><a href='?id={$value['id']}&acompte={$value['acompte']}&modif=True'>Modifier</a></td>";
-        echo "<td><a href='?id={$value['id']}&del=True'>Supprimer</a></td>";
+        echo "<td><a href='?page=admin&id={$value['id']}&acompte={$value['acompte']}&modif=True'>Modifier</a></td>";
+        echo "<td><a href='?page=admin&id={$value['id']}&del=True'>Supprimer</a></td>";
         echo '</tr>';
         // &nom={$value['nom']}&prénom={$value['prénom']}&role={$value['role']}
     }
     ?>
     </tbody>
 </table>
-<a href="?add_account=True" class="btn__add-account">Ajouter un compte</a>
+<a href="?page=admin&add_account=True" class="btn__add-account">Ajouter un compte</a>
 <?php
 // Ajout d'un compte
 if (isset($_GET['add_account']) == 'True') {
@@ -57,18 +62,18 @@ if (isset($_GET['add_account']) == 'True') {
 }
 
 // Modification d'acompte
-if (isset($_GET['id']) && isset($_GET['modif']) == True) {
+if (isset($_GET['id']) && isset($_GET['modif']) == 'True') {
     echo '<form action="" method="POST">';
     echo "<input type='text' name='acompte' placeholder='acompte'>";
     echo '<input type="submit" name="submit" value="Envoyer">';
-    echo '<a href="admin.php" class="cancel">Annuler</a>';
+    echo '<a href="?page=admin" class="cancel">Annuler</a>';
     echo "</form>";
     $id = $_GET['id'];
 
     if (isset($_POST['submit'])) {
         $acompte = $_GET['acompte'] + $_POST['acompte'];
         modifAcompte($acompte, $id);
-        header('location: admin.php');
+        header('location: ?page=admin');
     }
 }
 ?>
@@ -183,5 +188,6 @@ if (isset($_GET['id']) && isset($_GET['modif']) == True) {
 
     .cancel {
         text-align: center;
+        color: #FFF;
     }
 </style>

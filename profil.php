@@ -10,8 +10,8 @@
 </head>
 <body>
 
-<?php include "view/header.php"; ?>
-<?php include "view/footer.php"; ?>
+<?php include_once "view/header.php"; ?>
+<?php include_once "view/footer.php"; ?>
 
 </body>
 </html>

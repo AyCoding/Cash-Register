@@ -1,5 +1,5 @@
-<?php include "view/header.php"; ?>
-<?php include "controller/traitementCaisse.php"; ?>
+<?php include_once "view/header.php"; ?>
+<?php include_once "controller/traitementCaisse.php"; ?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -62,7 +62,7 @@
         </SELECT>
     </form>
 
-    <?php include "view/footer.php"; ?>
+    <?php include_once "view/footer.php"; ?>
 </main>
 
 <!--<script src="src/js/main.js"></script>-->

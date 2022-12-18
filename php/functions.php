@@ -1,20 +1,21 @@
 <?php
 // Création d'utilisateur
-function CreateUser($nom, $prenom, $pass, $role)
+function CreateUser($nom, $prenom, $pseudo, $pass, $role)
 {
     global $db;
     // Insertion dans la table 'users'
-    $sql = "INSERT INTO `users`(nom, prénom, password,role, acompte) VALUES (:nom,:prenom,:password,:role,:acompte)";
+    $sql = "INSERT INTO `users`(nom, prénom, pseudo, password, type_account, acompte) VALUES (:nom, :prenom, :pseudo, :password, :type_account, :acompte)";
 
     $result = $db->prepare($sql);
     $result->execute([
         ':nom' => $nom,
         ':prenom' => $prenom,
+        ':pseudo' => $pseudo,
         ':password' => hash('sha256', $pass),
-        ':role' => $role,
+        ':type_account' => $role,
         ':acompte' => 0
     ]);
-    header('location: admin.php');
+    header('location: ?page=admin');
 }
 
 // Modification des acomptes
@@ -29,7 +30,7 @@ function modifAcompte($acompte, $id)
     ]);
 }
 
-// Modififaction On
+// Modification On
 function modifOn($modif)
 {
     if ($modif == True) {

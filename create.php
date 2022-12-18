@@ -5,19 +5,21 @@ include_once "php/functions.php";
 if (isset($_POST['submit'])) {
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
+    $pseudo = $_POST['pseudo'];
     $pass = $_POST['password'];
     $role = $_POST['role'];
 
-    CreateUser($nom, $prenom, $pass, $role);
+    CreateUser($nom, $prenom, $pseudo, $pass, $role);
 }
 ?>
 <form action="" method="POST">
     <input type="text" name="nom" placeholder="Nom">
     <input type="text" name="prenom" placeholder="Prénom">
+    <input type="text" name="pseudo" placeholder="Pseudo">
     <input type="password" name="password" placeholder="Password">
     <input type="text" name="role" placeholder="Rôle">
     <input type="submit" name="submit" value="Envoyer">
-    <a href="admin.php" class="cancel">Annuler</a>
+    <a href="?page=admin" class="cancel">Annuler</a>
 </form>
 <style>
     form {
@@ -29,7 +31,7 @@ if (isset($_POST['submit'])) {
         gap: 10px;
     }
 
-    form input, select, a {
+    form input, select, form a {
         padding: 10px 30px;
         border: none;
         cursor: pointer;
@@ -38,7 +40,7 @@ if (isset($_POST['submit'])) {
         border-radius: 4px;
     }
 
-    form input:hover, a:hover {
+    form input:hover, form a:hover {
         background: #555;
         transition: .3s;
     }
