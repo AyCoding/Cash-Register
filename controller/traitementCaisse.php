@@ -7,4 +7,4 @@ $sql = "SELECT * FROM `stocks`";
 $result = $db->prepare($sql);
 $result->execute();
 
-$data = $result->fetchAll();
+$data = $result->fetchAll(PDO::FETCH_ASSOC);

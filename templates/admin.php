@@ -13,7 +13,7 @@ $sql = 'SELECT * FROM `users`';
 $result = $db->prepare($sql);
 $result->execute();
 
-$data = $result->fetchAll();
+$data = $result->fetchAll(PDO::FETCH_ASSOC);
 
 // Bloquer l'accès à la page admin si l'utilisateur n'est pas admin
 if ($_SESSION['type_account'] != 'Admin') {

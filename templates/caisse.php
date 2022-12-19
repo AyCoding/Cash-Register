@@ -49,7 +49,7 @@
     $result = $db->prepare($sql);
     $result->execute();
 
-    $data = $result->fetchAll();
+    $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
     ?>
     <form action="">

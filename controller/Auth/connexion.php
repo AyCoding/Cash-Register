@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
 
     if ($result->rowCount() > 0) {
         // Récupérer la ligne de la table
-        $data = $result->fetch();
+        $data = $result->fetch(PDO::FETCH_ASSOC);
 
         // Vérification du mot de passe hash avec celui qui a été saisie
         if (hash('sha256', $password) === $data['password']) {
@@ -32,8 +32,11 @@ if (isset($_POST['submit'])) {
             // SESSION SET
             $_SESSION['id'] = $data['id'];
             $_SESSION['CONNECTED'] = true;
+            $_SESSION['nom'] = $data['nom'];
+            $_SESSION['prénom'] = $data['prénom'];
             $_SESSION['pseudo'] = $data['pseudo'];
             $_SESSION['type_account'] = $data['type_account'];
+            $_SESSION['acompte'] = $data['acompte'];
             header('location: ./');
             exit();
 
