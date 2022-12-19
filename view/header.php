@@ -13,23 +13,12 @@ $data = $result->fetchAll();
 <header>
     <div class="left">
         <a href="./controller/Auth/logout.php">Déconnexion</a>
-        <a href="./?page=produit">
-            <span>Produits</span>
-        </a>
-
-        <a href="./?page=acompte">
-            <span>Acompte</span>
-        </a>
-
-        <a href="./?page=profil">
-            <span>Profil</span>
-        </a>
-
+        <a href="./?page=produit">Produits</a>
+        <a href="./?page=acompte">Acompte</a>
+        <a href="./?page=profil">Profil</a>
         <?php
         if ($_SESSION['type_account'] == 'Admin') {
-            echo '<a href="./?page=admin">
-                <span>Admin</span>
-            </a>';
+            echo '<a href="./?page=admin">Admin</a>';
         }
         ?>
 
@@ -39,7 +28,7 @@ $data = $result->fetchAll();
             if ($value['id'] == $_SESSION['id']) {
                 echo '<a href="" style="position: relative">';
                 echo '<span class="cash">';
-                echo $value['acompte'];
+                echo $value['acompte'] . '€';
                 echo '</span>';
                 echo '<span class="user">';
                 echo $value['prénom'] . ' ' . $value['nom'][0] . '.';

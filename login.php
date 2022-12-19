@@ -74,7 +74,7 @@ include "controller/Auth/connexion.php";
         outline: none;
         width: 100%;
         padding: 10px 0;
-        border: 1px solid #333;
+        border: 1px solid #808080;
     }
 
     input::placeholder {
@@ -83,6 +83,7 @@ include "controller/Auth/connexion.php";
 
     #submit {
         font-weight: bold;
+        color: #808080;
     }
 
     #submit:hover {
@@ -90,6 +91,7 @@ include "controller/Auth/connexion.php";
         color: #FFF;
         transition: .3s;
         cursor: pointer;
+
     }
 </style>
 

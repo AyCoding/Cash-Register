@@ -16,22 +16,22 @@ Forcer_connexion();
     <title>Caserne Nouzonville</title>
 </head>
 <body>
-<?php include_once "view/header.php"; ?>
+<?php include_once "./view/header.php"; ?>
 <main>
     <?php
     if (isset($_GET['page'])) {
         switch ($_GET['page']) {
             case 'admin':
-                include "admin.php";
+                include "./templates/admin.php";
                 break;
             case 'profil':
-                include "profil.php";
+                include "./templates/profil.php";
                 break;
             case 'acompte':
-                include "acompte.php";
+                include "./templates/acompte.php";
                 break;
             default:
-                include "caisse.php";
+                include "./templates/caisse.php";
                 break;
         }
     }

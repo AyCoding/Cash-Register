@@ -58,7 +58,7 @@ if ($_SESSION['type_account'] != 'Admin') {
 <?php
 // Ajout d'un compte
 if (isset($_GET['add_account']) == 'True') {
-    include "create.php";
+    include "templates/create.php";
 }
 
 // Modification d'acompte
