@@ -33,11 +33,13 @@ if (isset($_POST['submit'])) {
             $_SESSION['id'] = $data['id'];
             $_SESSION['CONNECTED'] = true;
             $_SESSION['nom'] = $data['nom'];
-            $_SESSION['prénom'] = $data['prénom'];
+            $_SESSION['prenom'] = $data['prenom'];
             $_SESSION['pseudo'] = $data['pseudo'];
             $_SESSION['type_account'] = $data['type_account'];
             $_SESSION['acompte'] = $data['acompte'];
 
+            include_once "php/functions.php";
+            AddLogs("Connexion");
             // Redirection vers la page d'accueil
             header('location: ./');
 

@@ -16,6 +16,7 @@ function CreateUser($nom, $prenom, $pseudo, $pass, $role)
         ':acompte' => 0
     ]);
     header('location: ?page=admin');
+    addLogs("Création d'utilisateur");
 }
 
 // Modification des acomptes
@@ -28,6 +29,7 @@ function modifAcompte($acompte, $id)
         ':acompte' => $acompte,
         ':id' => $id
     ]);
+    addLogs("Modification d'acompte");
 }
 
 // Modification On
@@ -47,5 +49,23 @@ function delById($id)
     $result = $db->prepare($sql);
     $result->execute([
         ':id' => $id,
+    ]);
+    addLogs("Suppression de compte");
+}
+
+// Gestion des logs
+function AddLogs($action)
+{
+    global $db;
+    // TimeZone paris
+    date_default_timezone_set('Europe/Paris');
+    $date = date('Y-m-d H:i:s');
+    $sql = "INSERT INTO `logs`(nom, prenom, action, date) VALUES (:nom, :prenom, :action, :date)";
+    $result = $db->prepare($sql);
+    $result->execute([
+        ':nom' => $_SESSION['nom'],
+        ':prenom' => $_SESSION['prenom'],
+        ':action' => $action,
+        ':date' => $date
     ]);
 }
