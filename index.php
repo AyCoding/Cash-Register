@@ -2,7 +2,6 @@
 include "controller/Auth/auth.php";
 Connecte();
 Forcer_connexion();
-
 ?>
 <!doctype html>
 <html lang="fr">
@@ -30,10 +29,15 @@ Forcer_connexion();
             case 'acompte':
                 include "./templates/acompte.php";
                 break;
+            case 'logs':
+                include "./templates/logs.php";
+                break;
             default:
                 include "./templates/caisse.php";
                 break;
         }
+    } else {
+        include "./templates/caisse.php";
     }
     ?>
 </main>

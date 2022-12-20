@@ -30,58 +30,71 @@ if ($_SESSION['type_account'] != 'Admin') {
     <title>Admin</title>
 </head>
 <body>
-<table>
-    <thead>
-    <tr>
-        <td>Nom</td>
-        <td>Prénom</td>
-        <td>Acompte</td>
-        <td colspan="2">Modif/Suppr.</td>
-    </tr>
-    </thead>
-    <tbody>
+<main>
+    <h1>Administrateur</h1>
+    <table>
+        <thead>
+        <tr>
+            <td>Nom</td>
+            <td>Prénom</td>
+            <td>Acompte</td>
+            <td colspan="2">Modif/Suppr.</td>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+        foreach ($data as $value) {
+            echo '<tr>';
+            echo '<td>' . $value['nom'] . '</td>';
+            echo '<td>' . $value['prénom'] . '</td>';
+            echo '<td>' . $value['acompte'] . '€</td>';
+            echo "<td><a href='?page=admin&id={$value['id']}&acompte={$value['acompte']}&modif=True'>Modifier</a></td>";
+            echo "<td><a href='?page=admin&id={$value['id']}&del=True'>Supprimer</a></td>";
+            echo '</tr>';
+            // &nom={$value['nom']}&prénom={$value['prénom']}&role={$value['role']}
+        }
+        ?>
+        </tbody>
+    </table>
+    <div class="btn__group">
+        <a href="?page=logs" class="btn">Voir les logs</a>
+        <a href="?page=admin&add_account=True" class="btn">Ajouter un compte</a>
+    </div>
     <?php
-    foreach ($data as $value) {
-        echo '<tr>';
-        echo '<td>' . $value['nom'] . '</td>';
-        echo '<td>' . $value['prénom'] . '</td>';
-        echo '<td>' . $value['acompte'] . '€</td>';
-        echo "<td><a href='?page=admin&id={$value['id']}&acompte={$value['acompte']}&modif=True'>Modifier</a></td>";
-        echo "<td><a href='?page=admin&id={$value['id']}&del=True'>Supprimer</a></td>";
-        echo '</tr>';
-        // &nom={$value['nom']}&prénom={$value['prénom']}&role={$value['role']}
+    // Ajout d'un compte
+    if (isset($_GET['add_account']) == 'True') {
+        include "templates/create.php";
+    }
+
+    // Modification d'acompte
+    if (isset($_GET['id']) && isset($_GET['modif']) == 'True') {
+        echo '<form action="" method="POST">';
+        echo "<input type='text' name='acompte' placeholder='acompte'>";
+        echo '<input type="submit" name="submit" value="Envoyer">';
+        echo '<a href="?page=admin" class="cancel">Annuler</a>';
+        echo "</form>";
+        $id = $_GET['id'];
+
+        if (isset($_POST['submit'])) {
+            $acompte = $_GET['acompte'] + $_POST['acompte'];
+            modifAcompte($acompte, $id);
+            header('location: ?page=admin');
+        }
     }
     ?>
-    </tbody>
-</table>
-<a href="?page=admin&add_account=True" class="btn__add-account">Ajouter un compte</a>
-<?php
-// Ajout d'un compte
-if (isset($_GET['add_account']) == 'True') {
-    include "templates/create.php";
-}
-
-// Modification d'acompte
-if (isset($_GET['id']) && isset($_GET['modif']) == 'True') {
-    echo '<form action="" method="POST">';
-    echo "<input type='text' name='acompte' placeholder='acompte'>";
-    echo '<input type="submit" name="submit" value="Envoyer">';
-    echo '<a href="?page=admin" class="cancel">Annuler</a>';
-    echo "</form>";
-    $id = $_GET['id'];
-
-    if (isset($_POST['submit'])) {
-        $acompte = $_GET['acompte'] + $_POST['acompte'];
-        modifAcompte($acompte, $id);
-        header('location: ?page=admin');
-    }
-}
-?>
+</main>
 </body>
 </html>
 
 
 <style>
+    h1 {
+        text-align: center;
+        font-size: 50px;
+        font-weight: bold;
+        margin: 20px auto;
+    }
+
     thead {
         font-weight: bold;
     }
@@ -117,7 +130,12 @@ if (isset($_GET['id']) && isset($_GET['modif']) == 'True') {
         align-items: center;
     }
 
-    .btn__add-account {
+    .btn__group {
+        display: flex;
+        flex-flow: wrap;
+    }
+
+    .btn {
         background: #333;
         color: #FFF;
         display: flex;
@@ -129,19 +147,20 @@ if (isset($_GET['id']) && isset($_GET['modif']) == 'True') {
         text-decoration: none !important;
     }
 
-    .btn__add-account:hover {
+    .btn:hover {
         background: #555;
         transition: .3s;
     }
 
-    a {
+    main a {
         padding: 10px 30px;
         border: none;
         cursor: pointer;
         background: #333;
-        /*color: #FFF;*/
+        color: #ffffff;
         border-radius: 4px;
     }
+
 
     a:hover {
         background: #555;

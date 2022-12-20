@@ -50,17 +50,7 @@
     $result->execute();
 
     $data = $result->fetchAll(PDO::FETCH_ASSOC);
-
     ?>
-    <form action="">
-        <SELECT name="role" size="1">
-            <OPTION selected>None
-                <?php foreach ($data as $key => $value) {
-                    echo '<OPTION>' . $value['nom'] . ' ' . $value['prénom'];
-                }
-                ?>
-        </SELECT>
-    </form>
     <?php include_once "view/footer.php"; ?>
 </main>
 

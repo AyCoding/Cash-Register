@@ -1,6 +1,6 @@
 <?php
 // Paramètre de connexion
-include "php/database.php";
+include_once "php/database.php";
 
 session_start();
 
@@ -37,7 +37,10 @@ if (isset($_POST['submit'])) {
             $_SESSION['pseudo'] = $data['pseudo'];
             $_SESSION['type_account'] = $data['type_account'];
             $_SESSION['acompte'] = $data['acompte'];
+
+            // Redirection vers la page d'accueil
             header('location: ./');
+
             exit();
 
         }
