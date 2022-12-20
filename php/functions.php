@@ -29,7 +29,7 @@ function modifAcompte($acompte, $id)
         ':acompte' => $acompte,
         ':id' => $id
     ]);
-    addLogs("Modification d'acompte");
+    addLogs("Modification de l'acompte de l'utilisateur" . ' ' . $id . " à " . $acompte . "€" . " par " . $_SESSION['nom'] . " " . $_SESSION['prenom']);
 }
 
 // Modification On
