@@ -26,7 +26,7 @@ $data = $result->fetchAll();
     <div class="right" style="flex-flow: column; align-items: flex-start">
         <?php foreach ($data as $key => $value) {
             if ($value['id'] == $_SESSION['id']) {
-                echo '<a href="" style="position: relative">';
+                echo '<a href="?page=profil" style="position: relative">';
                 echo '<span class="cash">';
                 echo $value['acompte'] . '€';
                 echo '</span>';

@@ -17,7 +17,6 @@ if (isset($_POST['submit'])) {
     <input type="text" name="prenom" placeholder="Prénom">
     <input type="text" name="pseudo" placeholder="Pseudo">
     <input type="password" name="password" placeholder="Password">
-    <input type="text" name="role" placeholder="Rôle">
     <select name="role" id="role">
         <option value="">None</option>
         <option value="Admin">Admin</option>

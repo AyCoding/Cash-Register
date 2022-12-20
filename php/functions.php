@@ -16,7 +16,7 @@ function CreateUser($nom, $prenom, $pseudo, $pass, $role)
         ':acompte' => 0
     ]);
     header('location: ?page=admin');
-    addLogs("Création d'utilisateur");
+    addLogs("Création d'utilisateur de " . $nom . " " . $prenom. " avec le rôle " . $role . " fait par " . $_SESSION['nom'] . " " . $_SESSION['prenom']);
 }
 
 // Modification des acomptes
@@ -50,7 +50,7 @@ function delById($id)
     $result->execute([
         ':id' => $id,
     ]);
-    addLogs("Suppression de compte");
+    addLogs("Suppression de compte de l'utilisateur" . ' ' . $id . " par " . $_SESSION['nom'] . " " . $_SESSION['prenom']);
 }
 
 // Gestion des logs

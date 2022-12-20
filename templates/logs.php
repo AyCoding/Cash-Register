@@ -63,7 +63,7 @@ $data = $result->fetchAll(PDO::FETCH_ASSOC);
     }
 
     td {
-        width: 200px;
+        /*width: 200px;*/
         max-width: 90%;
         text-align: center;
     }
