@@ -18,7 +18,7 @@ $data = $result->fetchAll(PDO::FETCH_ASSOC);
     <?php
     foreach ($data as $key => $value) {
         echo '<tr>';
-        echo '<td>' . $value['nom'] . ' ' . $value['prénom'] . '</td>';
+        echo '<td>' . $value['nom'] . ' ' . $value['prenom'] . '</td>';
         echo '<td>' . $value['acompte'] . '€</td>';
         echo '</tr>';
     }

@@ -4,12 +4,12 @@ function CreateUser($nom, $prenom, $pseudo, $pass, $role)
 {
     global $db;
     // Insertion dans la table 'users'
-    $sql = "INSERT INTO `users`(nom, prénom, pseudo, password, type_account, acompte) VALUES (:nom, :prénom, :pseudo, :password, :type_account, :acompte)";
+    $sql = "INSERT INTO `users`(nom, prenom, pseudo, password, type_account, acompte) VALUES (:nom, :prenom, :pseudo, :password, :type_account, :acompte)";
 
     $result = $db->prepare($sql);
     $result->execute([
         ':nom' => $nom,
-        ':prénom' => $prenom,
+        ':prenom' => $prenom,
         ':pseudo' => $pseudo,
         ':password' => hash('sha256', $pass),
         ':type_account' => $role,

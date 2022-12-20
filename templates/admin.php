@@ -3,11 +3,6 @@ include_once "php/database.php";
 include_once "view/header.php";
 include_once "php/functions.php";
 
-// Suppression un compte
-if (isset($_GET['id']) && isset($_GET['del']) == 'True') {
-    delById($_GET['id']);
-}
-
 $sql = 'SELECT * FROM `users`';
 
 $result = $db->prepare($sql);
@@ -46,12 +41,11 @@ if ($_SESSION['type_account'] != 'Admin') {
         foreach ($data as $value) {
             echo '<tr>';
             echo '<td>' . $value['nom'] . '</td>';
-            echo '<td>' . $value['prénom'] . '</td>';
+            echo '<td>' . $value['prenom'] . '</td>';
             echo '<td>' . $value['acompte'] . '€</td>';
             echo "<td><a href='?page=admin&id={$value['id']}&acompte={$value['acompte']}&modif=True'>Modifier</a></td>";
-            echo "<td><a href='?page=admin&id={$value['id']}&del=True'>Supprimer</a></td>";
+            echo "<td><a href='?page=admin&id={$value['id']}&del=True' style='color: red'>Supprimer</a></td>";
             echo '</tr>';
-            // &nom={$value['nom']}&prénom={$value['prénom']}&role={$value['role']}
         }
         ?>
         </tbody>
@@ -64,6 +58,21 @@ if ($_SESSION['type_account'] != 'Admin') {
     // Ajout d'un compte
     if (isset($_GET['add_account']) == 'True') {
         include "templates/create.php";
+    }
+
+    // Suppression un compte
+    if (isset($_GET['id']) && isset($_GET['del']) == 'True') {
+        echo '<form action="" method="POST">';
+        if ($_SESSION['id'] != $_GET['id']) {
+            echo '<input type="submit" name="submit" value="Confirmation de la suppression">';
+            if (isset($_POST['submit'])) {
+                delById($_GET['id']);
+                header('location: ?page=admin');
+            }
+        } else {
+            echo '<p style="text-align: center">Vous ne pouvez pas supprimer votre propre compte</p>';
+            echo "<a href='?page=admin' style='text-align: center'>Annulez</a>";
+        }
     }
 
     // Modification d'acompte

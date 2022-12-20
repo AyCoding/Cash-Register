@@ -31,7 +31,7 @@ $data = $result->fetchAll();
                 echo $value['acompte'] . '€';
                 echo '</span>';
                 echo '<span class="user">';
-                echo $value['prénom'] . ' ' . $value['nom'][0] . '.';
+                echo $value['prenom'] . ' ' . $value['nom'][0] . '.';
                 echo '</span>';
                 echo '<svg style="vertical-align: middle;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
                  height="24">

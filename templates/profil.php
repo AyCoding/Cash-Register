@@ -24,7 +24,7 @@ $data = $result->fetch(PDO::FETCH_ASSOC);
         <h1>Profil</h1>
         <div class="profil__info">
             <p>Nom : <?= $data['nom'] ?></p>
-            <p>Prénom : <?= $data['prénom'] ?></p>
+            <p>Prénom : <?= $data['prenom'] ?></p>
             <p>Role : <?= $data['type_account'] ?></p>
             <p>Acompte : <?= $data['acompte'] ?>€</p>
         </div>
