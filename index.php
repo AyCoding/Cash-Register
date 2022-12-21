@@ -2,8 +2,6 @@
 include "controller/Auth/auth.php";
 Connecte();
 Forcer_connexion();
-
-//include_once "php/database.php";
 ?>
 <!doctype html>
 <html lang="fr">

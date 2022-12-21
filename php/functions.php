@@ -16,7 +16,7 @@ function CreateUser($nom, $prenom, $pseudo, $pass, $role)
         ':acompte' => 0
     ]);
     header('location: ?page=admin');
-    addLogs("Création d'utilisateur de " . $nom . " " . $prenom. " avec le rôle " . $role . " fait par " . $_SESSION['nom'] . " " . $_SESSION['prenom']);
+    addLogs("Création d'utilisateur de " . $nom . " " . $prenom . " avec le rôle " . $role . " fait par " . $_SESSION['nom'] . " " . $_SESSION['prenom']);
 }
 
 // Modification des acomptes
