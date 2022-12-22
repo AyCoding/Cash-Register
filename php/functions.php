@@ -15,7 +15,7 @@ function CreateUser($nom, $prenom, $pseudo, $pass, $role)
         ':type_account' => $role,
         ':acompte' => 0
     ]);
-    header('location: ?page=admin');
+    echo "<script>window.location.href = '?page=admin'</script>";
     addLogs("Création d'utilisateur de " . $nom . " " . $prenom . " avec le rôle " . $role . " par " . $_SESSION['nom'] . " " . $_SESSION['prenom']);
 }
 

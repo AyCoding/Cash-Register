@@ -12,7 +12,7 @@ $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
 // Bloquer l'accès à la page admin si l'utilisateur n'est pas admin
 if ($_SESSION['type_account'] != 'Admin') {
-    header('location: ./');
+    echo "<script>window.location.href = './'</script>";
 }
 ?>
 <body>
@@ -59,7 +59,7 @@ if ($_SESSION['type_account'] != 'Admin') {
             echo "<a href='?page=admin' style='text-align: center'>Annulez</a>";
             if (isset($_POST['submit'])) {
                 delById($_GET['id']);
-                header('location: ?page=admin');
+                echo "<script>window.location.href = '?page=admin'</script>";
             }
         } else {
             echo '<p style="text-align: center">Vous ne pouvez pas supprimer votre propre compte</p>';
@@ -79,8 +79,9 @@ if ($_SESSION['type_account'] != 'Admin') {
         if (isset($_POST['submit'])) {
             $acompte = $_GET['acompte'] + $_POST['acompte'];
             modifAcompte($acompte, $id);
-            header('location: ?page=admin');
+            echo "<script>window.location.href = '?page=admin'</script>";
         }
+
     }
     ?>
 </main>
@@ -116,7 +117,7 @@ if ($_SESSION['type_account'] != 'Admin') {
     }
 
     tr > * {
-        padding: 15px 30px;
+        padding: 5px 15px;
     }
 
     td {
@@ -182,7 +183,7 @@ if ($_SESSION['type_account'] != 'Admin') {
         display: flex;
         max-width: 90%;
         width: 500px;
-        margin: 5% auto;
+        margin: 30px auto;
         flex-direction: column;
         gap: 10px;
     }

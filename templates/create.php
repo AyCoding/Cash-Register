@@ -18,9 +18,8 @@ if (isset($_POST['submit'])) {
     <input type="text" name="pseudo" placeholder="Pseudo">
     <input type="password" name="password" placeholder="Password">
     <select name="role" id="role">
-        <option value="">None</option>
-        <option value="Admin">Admin</option>
         <option value="Base">Base</option>
+        <option value="Admin">Admin</option>
     </select>
     <input type="submit" name="submit" value="Envoyer">
     <a href="?page=admin" class="cancel">Annuler</a>

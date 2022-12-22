@@ -3,7 +3,7 @@ if ($_SESSION['type_account'] != 'Admin') {
     header('location: ./');
 }
 
-$sql = "SELECT * FROM `logs`";
+$sql = "SELECT * FROM `logs` ORDER BY date DESC";
 $result = $db->prepare($sql);
 $result->execute();
 $data = $result->fetchAll(PDO::FETCH_ASSOC);

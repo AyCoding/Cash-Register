@@ -23,7 +23,7 @@ $data = $result->fetch(PDO::FETCH_ASSOC);
 
 <?php
 // Logs
-$sql = "SELECT * FROM `logs` where nom = :nom AND prenom = :prenom";
+$sql = "SELECT * FROM `logs` where nom = :nom AND prenom = :prenom ORDER BY date DESC";
 $result = $db->prepare($sql);
 $result->execute([
     ':nom' => $_SESSION['nom'],
