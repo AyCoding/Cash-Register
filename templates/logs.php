@@ -13,6 +13,7 @@ $data = $result->fetchAll(PDO::FETCH_ASSOC);
 <table>
     <thead>
     <tr>
+        <td>IP</td>
         <td>Utilisateur</td>
         <td>Action</td>
         <td>Date</td>
@@ -22,6 +23,7 @@ $data = $result->fetchAll(PDO::FETCH_ASSOC);
     <?php
     foreach ($data as $value) {
         echo '<tr>';
+        echo '<td>' . $value['ip_addr'] . '</td>';
         echo '<td>' . $value['nom'] . ' ' . $value['prenom'] . '</td>';
         echo '<td>' . $value['action'] . '</td>';
         echo '<td>' . $value['date'] . '</td>';
@@ -59,7 +61,7 @@ $data = $result->fetchAll(PDO::FETCH_ASSOC);
     }
 
     tr > * {
-        padding: 15px 30px;
+        padding: 5px 15px;
     }
 
     td {

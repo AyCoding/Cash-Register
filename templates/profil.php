@@ -97,7 +97,7 @@ $data = $result->fetchAll(PDO::FETCH_ASSOC);
     }
 
     tr > * {
-        padding: 15px 30px;
+        padding: 5px 15px;
     }
 
     td {

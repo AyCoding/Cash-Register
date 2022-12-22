@@ -16,7 +16,7 @@ function CreateUser($nom, $prenom, $pseudo, $pass, $role)
         ':acompte' => 0
     ]);
     header('location: ?page=admin');
-    addLogs("Création d'utilisateur de " . $nom . " " . $prenom . " avec le rôle " . $role . " fait par " . $_SESSION['nom'] . " " . $_SESSION['prenom']);
+    addLogs("Création d'utilisateur de " . $nom . " " . $prenom . " avec le rôle " . $role . " par " . $_SESSION['nom'] . " " . $_SESSION['prenom']);
 }
 
 // Modification des acomptes
@@ -29,43 +29,64 @@ function modifAcompte($acompte, $id)
         ':acompte' => $acompte,
         ':id' => $id
     ]);
-    addLogs("Modification de l'acompte de l'utilisateur" . ' ' . $id . " à " . $acompte . "€" . " par " . $_SESSION['nom'] . " " . $_SESSION['prenom']);
+    $OldAcompte = $_GET['acompte'];
+    $NewAcompte = $acompte;
+
+    // Affiche le nom et prénom de l'utilisateur qui a été modifié
+    $sql = "SELECT * FROM `users` WHERE `id`= :id";
+    $result = $db->prepare($sql);
+    $result->execute([
+        ':id' => $id
+    ]);
+    $user = $result->fetch(PDO::FETCH_ASSOC);
+    $nom = $user['nom'];
+    $prenom = $user['prenom'];
+    addLogs("Modification de l'acompte de l'utilisateur" . ' ' . $nom . ' ' . $prenom . " de " . $OldAcompte . " à " . $NewAcompte . "€" . " par " . $_SESSION['nom'] . " " . $_SESSION['prenom']);
 }
 
-// Modification On
-function modifOn($modif)
-{
-    if ($modif == True) {
-        return True;
-    }
-    return False;
-}
-
-// Suppression de compte
+// Suppression de compte utilisateur
 function delById($id)
 {
     global $db;
-    $sql = "DELETE FROM `users` WHERE `users`.`id` = :id";
+
+    // Affiche le nom et prénom de l'utilisateur qui a été supprimé
+    $sql = "SELECT * FROM `users` WHERE `id`= :id";
+    $result = $db->prepare($sql);
+    $result->execute([
+        ':id' => $id
+    ]);
+    $user = $result->fetch(PDO::FETCH_ASSOC);
+    $nom = $user['nom'];
+    $prenom = $user['prenom'];
+
+    $sql = "DELETE FROM `users` WHERE `id`= :id";
     $result = $db->prepare($sql);
     $result->execute([
         ':id' => $id,
     ]);
-    addLogs("Suppression de compte de l'utilisateur" . ' ' . $id . " par " . $_SESSION['nom'] . " " . $_SESSION['prenom']);
+
+    addLogs("Suppression de l'utilisateur" . ' ' . $nom . ' ' . $prenom . " par " . $_SESSION['nom'] . " " . $_SESSION['prenom']);
 }
 
 // Gestion des logs
 function AddLogs($action)
 {
     global $db;
-    // TimeZone paris
+    // TimeZone Paris
     date_default_timezone_set('Europe/Paris');
     $date = date('Y-m-d H:i:s');
-    $sql = "INSERT INTO `logs`(nom, prenom, action, date) VALUES (:nom, :prenom, :action, :date)";
+    $sql = "INSERT INTO `logs`(`ip_addr`, `nom`, `prenom`, `date`, `action`) VALUES (:ip_addr, :nom, :prenom, :date, :action)";
     $result = $db->prepare($sql);
     $result->execute([
+        // Récupère l'adresse IP de l'utilisateur
+        ':ip_addr' => getenv("REMOTE_ADDR"),
+        // Récupère le nom de l'utilisateur
         ':nom' => $_SESSION['nom'],
+        // Récupère le prénom de l'utilisateur
         ':prenom' => $_SESSION['prenom'],
-        ':action' => $action,
-        ':date' => $date
+        // Récupère la date
+        ':date' => $date,
+        // Récupère l'action
+        ':action' => $action
     ]);
 }

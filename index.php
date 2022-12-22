@@ -1,7 +1,7 @@
 <?php
 include "controller/Auth/auth.php";
-Connecte();
-Forcer_connexion();
+estConnecte();
+verifierConnexion();
 ?>
 <!doctype html>
 <html lang="fr">

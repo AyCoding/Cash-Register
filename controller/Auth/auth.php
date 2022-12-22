@@ -1,15 +1,17 @@
 <?php
-function Connecte(): bool
+const SESSION_CONNECTE = 'CONNECTED';
+
+function estConnecte(): bool
 {
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
-    return !empty($_SESSION['CONNECTED']);
+    return !empty($_SESSION[SESSION_CONNECTE]);
 }
 
-function Forcer_connexion(): void
+function verifierConnexion(): void
 {
-    if (!Connecte()) {
+    if (!estConnecte()) {
         header('location: ./login.php');
         exit();
     }

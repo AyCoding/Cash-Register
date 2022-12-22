@@ -26,27 +26,30 @@ if (isset($_POST['submit'])) {
         // Récupérer la ligne de la table
         $data = $result->fetch(PDO::FETCH_ASSOC);
 
-        // Vérification du mot de passe hash avec celui qui a été saisie
-        if (hash('sha256', $password) === $data['password']) {
+        if ($username === $data['pseudo']) {
 
-            // SESSION SET
-            $_SESSION['id'] = $data['id'];
-            $_SESSION['CONNECTED'] = true;
-            $_SESSION['nom'] = $data['nom'];
-            $_SESSION['prenom'] = $data['prenom'];
-            $_SESSION['pseudo'] = $data['pseudo'];
-            $_SESSION['type_account'] = $data['type_account'];
-            $_SESSION['acompte'] = $data['acompte'];
+            // Vérification du mot de passe hash avec celui qui a été saisie
+            if (hash('sha256', $password) === $data['password']) {
 
-            include_once "php/functions.php";
-            AddLogs("Connexion");
-            // Redirection vers la page d'accueil
-            header('location: ./');
+                // SESSION SET
+                $_SESSION['id'] = $data['id'];
+                $_SESSION['CONNECTED'] = true;
+                $_SESSION['nom'] = $data['nom'];
+                $_SESSION['prenom'] = $data['prenom'];
+                $_SESSION['pseudo'] = $data['pseudo'];
+                $_SESSION['type_account'] = $data['type_account'];
+                $_SESSION['acompte'] = $data['acompte'];
 
-            exit();
+                include_once "php/functions.php";
+                AddLogs("Connexion");
+                // Redirection vers la page d'accueil
+                header('location: ./');
 
+                exit();
+
+            }
+        } else {
+            $error = "Nom d'utilisateur ou mot de passe incorrects !";
         }
-    } else {
-        $error = "Nom d'utilisateur ou mot de passe incorrects !";
     }
 }
