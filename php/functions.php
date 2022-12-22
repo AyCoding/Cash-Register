@@ -41,7 +41,7 @@ function modifAcompte($acompte, $id)
     $user = $result->fetch(PDO::FETCH_ASSOC);
     $nom = $user['nom'];
     $prenom = $user['prenom'];
-    addLogs("Modification de l'acompte de l'utilisateur" . ' ' . $nom . ' ' . $prenom . " de " . $OldAcompte . " à " . $NewAcompte . "€" . " par " . $_SESSION['nom'] . " " . $_SESSION['prenom']);
+    addLogs("Modification de l'acompte de l'utilisateur" . ' ' . $nom . ' ' . $prenom . " de " . $OldAcompte . '€' . " à " . $NewAcompte . "€" . " par " . $_SESSION['nom'] . " " . $_SESSION['prenom']);
 }
 
 // Suppression de compte utilisateur

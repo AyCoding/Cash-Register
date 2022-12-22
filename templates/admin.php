@@ -56,6 +56,7 @@ if ($_SESSION['type_account'] != 'Admin') {
         echo '<form action="" method="POST">';
         if ($_SESSION['id'] != $_GET['id']) {
             echo '<input type="submit" name="submit" value="Confirmation de la suppression">';
+            echo "<a href='?page=admin' style='text-align: center'>Annulez</a>";
             if (isset($_POST['submit'])) {
                 delById($_GET['id']);
                 header('location: ?page=admin');
@@ -92,7 +93,7 @@ if ($_SESSION['type_account'] != 'Admin') {
         text-align: center;
         font-size: 50px;
         font-weight: bold;
-        margin: 20px auto;
+        margin: 25px auto;
     }
 
     thead {

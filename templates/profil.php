@@ -32,7 +32,7 @@ $result->execute([
 $data = $result->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <?php echo '<h1 class="logs">Logs pour ' . $_SESSION['nom'] . ' ' . $_SESSION['prenom'] . '</h1>' ?>
-<table style="margin-top: 20px;">
+<table>
     <?php foreach ($data as $key => $value) {
         echo '<tr>';
         echo '<td>' . $value['nom'] . ' ' . $value['prenom'] . '</td>';
@@ -52,7 +52,7 @@ $data = $result->fetchAll(PDO::FETCH_ASSOC);
         text-align: center;
         font-size: 50px;
         font-weight: bold;
-        margin: 20px auto;
+        margin: 50px auto;
     }
 
     .profil {
@@ -60,7 +60,7 @@ $data = $result->fetchAll(PDO::FETCH_ASSOC);
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-top: 50px;
+        margin-top: 25px;
     }
 
     .profil__info {
@@ -68,7 +68,7 @@ $data = $result->fetchAll(PDO::FETCH_ASSOC);
         flex-direction: column;
         /*align-items: center;*/
         justify-content: center;
-        margin-top: 50px;
+        margin-top: 10px;
         gap: 15px;
     }
 
