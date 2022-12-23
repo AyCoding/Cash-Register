@@ -24,7 +24,7 @@ $data = $result->fetchAll(PDO::FETCH_ASSOC);
     foreach ($data as $value) {
         echo '<tr>';
         echo '<td>' . $value['ip_addr'] . '</td>';
-        echo '<td>' . $value['nom'] . ' ' . $value['prenom'] . '</td>';
+        echo '<td>' . strtoupper($value['nom']) . ' ' . $value['prenom'] . '</td>';
         echo '<td>' . $value['action'] . '</td>';
         echo '<td>' . $value['date'] . '</td>';
         echo '</tr>';
@@ -38,7 +38,7 @@ $data = $result->fetchAll(PDO::FETCH_ASSOC);
         text-align: center;
         font-size: 50px;
         font-weight: bold;
-        margin: 20px auto;
+        margin: 50px auto;
     }
 
     thead {

@@ -31,7 +31,7 @@ if ($_SESSION['type_account'] != 'Admin') {
         <?php
         foreach ($data as $value) {
             echo '<tr>';
-            echo '<td>' . $value['nom'] . '</td>';
+            echo '<td>' . strtoupper($value['nom']) . '</td>';
             echo '<td>' . $value['prenom'] . '</td>';
             echo '<td>' . $value['acompte'] . '€</td>';
             echo "<td><a href='?page=admin&id={$value['id']}&acompte={$value['acompte']}&modif=True'>Modifier</a></td>";
@@ -43,11 +43,11 @@ if ($_SESSION['type_account'] != 'Admin') {
     </table>
     <div class="btn__group">
         <a href="?page=logs" class="btn">Voir les logs</a>
-        <a href="?page=admin&add_account=True" class="btn">Ajouter un compte</a>
+        <a href="?page=admin&action=CreateUser" class="btn">Ajouter un compte</a>
     </div>
     <?php
     // Ajout d'un compte
-    if (isset($_GET['add_account']) == 'True') {
+    if (isset($_GET['action']) == 'CreateUser') {
         include "templates/create.php";
     }
 
@@ -94,7 +94,7 @@ if ($_SESSION['type_account'] != 'Admin') {
         text-align: center;
         font-size: 50px;
         font-weight: bold;
-        margin: 25px auto;
+        margin: 50px auto;
     }
 
     thead {

@@ -16,7 +16,27 @@ function CreateUser($nom, $prenom, $pseudo, $pass, $role)
         ':acompte' => 0
     ]);
     echo "<script>window.location.href = '?page=admin'</script>";
-    addLogs("Création d'utilisateur de " . $nom . " " . $prenom . " avec le rôle " . $role . " par " . $_SESSION['nom'] . " " . $_SESSION['prenom']);
+    addLogs("Création d'utilisateur de " . $nom . " " . $prenom . " avec le rôle " . $role . " par " . $_SESSION['prenom'] . " " . $_SESSION['nom']);
+}
+
+// Modification d'utilisateur (à tester)
+function UpdateUser($nom, $prenom, $pseudo, $pass, $role, $id)
+{
+    global $db;
+    // Modification dans la table 'users'
+    $sql = "UPDATE `users` SET nom = :nom, prenom = :prenom, pseudo = :pseudo, password = :password, type_account = :type_account WHERE id = :id";
+
+    $result = $db->prepare($sql);
+    $result->execute([
+        ':nom' => $nom,
+        ':prenom' => $prenom,
+        ':pseudo' => $pseudo,
+        ':password' => hash('sha256', $pass),
+        ':type_account' => $role,
+        ':id' => $id
+    ]);
+    echo "<script>window.location.href = '?page=admin'</script>";
+    addLogs("Modification d'utilisateur de " . $prenom . " " . $nom . " avec le rôle " . $role . " par " . $_SESSION['prenom'] . " " . $_SESSION['nom']);
 }
 
 // Modification des acomptes
@@ -41,7 +61,7 @@ function modifAcompte($acompte, $id)
     $user = $result->fetch(PDO::FETCH_ASSOC);
     $nom = $user['nom'];
     $prenom = $user['prenom'];
-    addLogs("Modification de l'acompte de l'utilisateur" . ' ' . $nom . ' ' . $prenom . " de " . $OldAcompte . '€' . " à " . $NewAcompte . "€" . " par " . $_SESSION['nom'] . " " . $_SESSION['prenom']);
+    addLogs("Modification de l'acompte de l'utilisateur" . ' ' . $prenom . ' ' . $nom . " de " . $OldAcompte . '€' . " à " . $NewAcompte . "€" . " par " . $_SESSION['prenom'] . " " . $_SESSION['nom']);
 }
 
 // Suppression de compte utilisateur
@@ -65,7 +85,7 @@ function delById($id)
         ':id' => $id,
     ]);
 
-    addLogs("Suppression de l'utilisateur" . ' ' . $nom . ' ' . $prenom . " par " . $_SESSION['nom'] . " " . $_SESSION['prenom']);
+    addLogs("Suppression de l'utilisateur" . ' ' . $prenom . ' ' . $nom . " par " . $_SESSION['nom'] . " " . $_SESSION['prenom']);
 }
 
 // Gestion des logs

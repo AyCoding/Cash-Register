@@ -11,15 +11,15 @@ $data = $result->fetch(PDO::FETCH_ASSOC);
 <body>
 
 <?php include_once "view/header.php"; ?>
-<div class="profil">
-    <h1>Profil</h1>
-    <div class="profil__info">
-        <p>Nom : <?= $data['nom'] ?></p>
-        <p>Prénom : <?= $data['prenom'] ?></p>
-        <p>Role : <?= $data['type_account'] ?></p>
-        <p>Acompte : <?= $data['acompte'] ?>€</p>
-    </div>
-</div>
+<!--<div class="profil">-->
+<!--    <h1>Profil</h1>-->
+<!--    <div class="profil__info">-->
+<!--        <p>Nom : --><?php //= $data['nom'] ?><!--</p>-->
+<!--        <p>Prénom : --><?php //= $data['prenom'] ?><!--</p>-->
+<!--        <p>Role : --><?php //= $data['type_account'] ?><!--</p>-->
+<!--        <p>Acompte : --><?php //= $data['acompte'] ?><!--€</p>-->
+<!--    </div>-->
+<!--</div>-->
 
 <?php
 // Logs
@@ -33,6 +33,14 @@ $data = $result->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <?php echo '<h1 class="logs">Logs pour ' . $_SESSION['nom'] . ' ' . $_SESSION['prenom'] . '</h1>' ?>
 <table>
+    <thead>
+    <tr>
+        <!-- <td>IP</td>-->
+        <td>Utilisateur</td>
+        <td>Action</td>
+        <td>Date</td>
+    </tr>
+    </thead>
     <?php foreach ($data as $key => $value) {
         echo '<tr>';
         echo '<td>' . $value['nom'] . ' ' . $value['prenom'] . '</td>';
